@@ -42,6 +42,21 @@
                 {% endfor %}
             </tbody>
         </table>
+        
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+              {% if _page > 1 %}  
+              <li class="page-item"><a class="page-link" href="?_page={{ _page - 1 }}">Previous</a></li>
+              {% endif %}
+              {% for page in pages %}
+              <li class="page-item"><a class="page-link" href="?_page={{ page }}">{{ page }}</a></li>
+              {% endfor %}
+              {% if _page < num_pages %}
+              <li class="page-item"><a class="page-link" href="?_page={{ _page + 1 }}">Next</a></li>
+              {% endif %}
+            </ul>
+        </nav>
+
         <a href="/agregar" class="btn btn-success">Agregar nuevo registro</a>
     </div>
 </body>

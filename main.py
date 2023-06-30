@@ -4,10 +4,15 @@ from models import CSVModel
 app = Flask(__name__)
 csv_model = CSVModel()
 
+PAGE_SIZE = 10
+
 @app.route('/')
 def index():
+    _page = int(request.args.get('_page', 1))
     data = csv_model.obtener_todos_los_datos()
-    return render_template('index.html', data=data)
+    num_pages = (len(data) + PAGE_SIZE - 1) // PAGE_SIZE + 1
+    pages = range(max(1, _page - 2), min(num_pages, _page + 3))
+    return render_template('index.html', data=data[(_page - 1) * PAGE_SIZE:(_page * PAGE_SIZE)], pages=pages, _page=_page, num_pages=num_pages)
 
 @app.route('/agregar', methods=['GET', 'POST'])
 def agregar():
