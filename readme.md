@@ -20,7 +20,6 @@ Sigue estos pasos para configurar y ejecutar la aplicación:
 
 2. Instala las dependencias requeridas ejecutando el siguiente comando: pip install flask
 
-
 3. Descarga los archivos de la aplicación y colócalos en un directorio de tu elección.
 
 4. Abre una terminal o línea de comandos y navega hasta el directorio donde se encuentran los archivos de la aplicación.
